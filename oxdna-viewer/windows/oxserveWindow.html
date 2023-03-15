@@ -1,0 +1,110 @@
+Simulation settings:
+<fieldset>
+    <legend>  Method:</legend>
+    <input type="radio" id="rxBackend" name="relaxBackend" value="MC" checked onchange="document.getElementById('relax_MC_settings').hidden = !document.getElementById('relax_MC_settings').hidden;document.getElementById('relax_MD_settings').hidden = !document.getElementById('relax_MD_settings').hidden;" >CPU
+    <input type="radio" id="rxBackend" name="relaxBackend" value="MD_GPU" onchange="document.getElementById('relax_MC_settings').hidden = !document.getElementById('relax_MC_settings').hidden;document.getElementById('relax_MD_settings').hidden = !document.getElementById('relax_MD_settings').hidden;">GPU
+</fieldset>
+
+<fieldset>
+    <button class="button" id="oxIP${id}_1" onclick="if(socket) socket.stop_simulation()" title="Delete entry">x</button>
+    <button class="button" id="oxIP${id}_2" onclick="if(socket) socket.start_simulation()" title="Establish connection">►</button>                      
+<fieldset>
+
+<fieldset id="relax_MC_settings" >
+    <label for="mcT">T: </label>
+    <input type="number" value="30" id="mcT" title="Simulation temperature">
+
+    <label for="mcSteps">Steps: </label>
+    <input type="number" value="100000" id="mcSteps" title="Number of steps to simulate">
+    
+    <label for="mcSalt">Salt: </label>
+    <input type="number" value="1" id="mcSalt" title="Na concentration">
+    
+    <label for="mcInteractionType">Interaction type:</label>
+    <select id="mcInteractionType">
+      <option value="DNA2">DNA</option>
+      <option value="RNA">RNA</option>
+      <option value="DNANM">DNA ANM</option>
+      <option value="RNANM">RNA ANM</option>
+    </select>
+
+    <label for="mcPrintConfInterval">Print Conf Interval: </label>
+    <input type="number" value="1000" id="mcPrintConfInterval" title="Output configuration every # of steps.">
+
+    <label for="mcPrintEnergyInterval">Print Energy Interval: </label>
+    <input type="number" value="1000" id="mcPrintEnergyInterval" title="Output energy every # of steps.">
+
+    <label for="mcDeltaTranslation">Delta Translation: </label>
+    <input type="number" value="0.22" id="mcDeltaTranslation" title="">
+    
+    <label for="mcDeltaRotation">Delta Rotation: </label>
+    <input type="number" value="0.22" id="mcDeltaRotation" title="">
+
+   
+    Relax settings:<br/>
+    <input type="checkbox" checked="true" id="mcUseRelax" data-role="checkbox" data-caption="Use" title="Use relax settings.">
+    <br/>
+    <label for="mcBackboneForce">Backbone Force: </label>
+    <input type="number" value="5" id="mcBackboneForce" title="">
+
+    <label for="mcBackboneForceFar">Backbone Force Far: </label>
+    <input type="number" value="10" id="mcBackboneForceFar" title="">
+
+</fieldset>
+
+<fieldset id="relax_MD_settings" hidden=true>
+    <label for="mdT">T: </label>
+    <input type="number" value="20" id="mdT" title="Simulation temperature">
+    
+    <label for="mdSteps">Steps: </label>
+    <input type="number" value="1000000" id="mdSteps" title="Number of steps to simulate">
+
+    <label for="mdSalt">Salt: </label>
+    <input type="number" value="1" id="mdSalt" title="Na concentration">
+    
+    <label for="mdInteractionType">Interaction type:</label>
+    <select id="mdInteractionType">
+      <option value="DNA2">DNA</option>
+      <option value="RNA2">RNA</option>
+      <option value="DNANM">DNA ANM</option>
+      <option value="RNANM">RNA ANM</option>
+    </select>
+
+    <label for="mdPrintConfInterval">Print Conf Interval: </label>
+    <input type="number" value="10000" id="mdPrintConfInterval" title="Output configuration every # of steps.">
+
+    <label for="mdPrintEnergyInterval">Print Energy Interval: </label>
+    <input type="number" value="10000" id="mdPrintEnergyInterval" title="Output energy every # of steps.">
+
+    <label for="mdThermostat">Thermostat: </label>
+    <!--<input type="text" value="john" id="mdThermostat" title="Thermostat to use.">-->
+    <select id="mdThermostat">
+      <option value="brownian">Brownian</option>
+      <!--<option value="refresh"> Anderson</option>-->
+      <option value="bussi">Bussi-Donadio-Parrinello</option>
+      <option value="langevin">Langevin</option>
+      <option value="no">No</option>
+    </select>
+
+    <label for="mdDT">dt: </label>
+    <input type="number" value="0.003" id="mdDT" title="dt value.">
+    
+    <label for="mdDiff_Coeff">diff coeff: </label>
+    <input type="number" value="2.5" id="mdDiff_Coeff" title="Diffusion coeff value.">
+
+    <label for="mdMaxDensityMul">Max Density Multiplier: </label>
+    <input type="number" value="10" id="mdMaxDensityMul" title="">
+    
+    Relax settings:<br/>
+    
+    <input type="checkbox" checked="true" id="mdUseRelax" data-role="checkbox" data-caption="Use" title="Use relax settings.">
+    <br/>
+    <label for="mdBackboneForce">Backbone Force: </label>
+    <input type="number" value="5" id="mdBackboneForce" title="">
+
+    <label for="mdBackboneForceFar">Backbone Force Far: </label>
+    <input type="number" value="10" id="mdBackboneForceFar" title="">
+    
+
+
+</fieldset>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+	<head>
+		<link rel="shortcut icon" type="image/png" href="resources/oxview.png">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Interactive design and simulation of coarse-grained molecular dynamics in a web-browser</title>
+
+		<link rel="stylesheet" href="reveal/dist/reset.css">
+		<link rel="stylesheet" href="reveal/dist/reveal.css">
+		<link rel="stylesheet" href="reveal/dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="reveal/plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section class="center">
+					<h2>oxView<img src="resources/oxview.png" height="50px"></h2>
+					<p>Interactive design and simulation of coarse-grained molecular dynamics in a web-browser</p>
+					<p>Joakim Bohlin</p>
+					<img src="resources/logo.svg" height="50px">
+					<img src="resources/logo-Infravis.svg" height="40px">
+					<img src="resources/chalmers.svg" height="40px">
+				</section>
+				<section>
+					<h3>DNA origami</h3>
+					<img src="resources/dna_origami.png">
+					<img src="resources/holiday.png" height="300px">
+				</section>
+
+				
+				<section class="center">
+					<h3>A DNA origami linear actuator</h3>
+					<img src="resources/linact.jpg" class="r-stretch">
+					<small>Benson, E., Carrascosa, R., Bath, J., Turberfield, A. J., <i>Strategies for Constructing and Operating DNA Origami Linear Actuators</i>. Small 2021, 17, 2007704. https://doi.org/10.1002/smll.202007704</small>
+				</section>
+
+				<section>
+					<h3>Simulating DNA</h3>
+					<img src="resources/comparison.png" class="r-stretch">
+				</section>
+				<section data-background-image="resources/oxdna_annot.png"></section>
+
+				<section data-background-video="resources/linactImport.mov" data-background-video-muted>
+				</section>
+
+				<section data-preload data-background-iframe="oxdna-viewer/index.html?file=../resources/sims/linact/aligned_traj.dat&file=../resources/sims/linact/linear_actuator.top&file=../resources/sims/linact/deviations.json" data-background-interactive></section>
+
+				<section class="center">
+					<img src="resources/cubePotentials.svg" class="r-stretch">
+				</section>
+
+				<section>
+					<section data-preload data-background-iframe="oxdna-viewer/index.html?file=../resources/sims/cube/T_0.06_no_torsion_full/init.top&file=../resources/sims/cube/T_0.06_no_torsion_full/trajectory.dat&file=../resources/sims/cube/T_0.06_no_torsion_full/particles.txt&file=../resources/sims/cube/T_0.06_no_torsion_full/patches.txt" data-background-interactive>
+						Wireframe cube (full, no torsion) T = 0.06
+					</section>
+
+					<section data-preload data-background-iframe="oxdna-viewer/index.html?file=../resources/sims/cube/T_0.02_no_torsion_min/init.top&file=../resources/sims/cube/T_0.02_no_torsion_min/trajectory.dat&file=../resources/sims/cube/T_0.02_no_torsion_min/particles.txt&file=../resources/sims/cube/T_0.02_no_torsion_min/patches.txt" data-background-interactive>
+						Wireframe cube (minimal, no torsion) T = 0.02
+					</section>
+
+					<section data-preload data-background-iframe="oxdna-viewer/index.html?file=../resources/sims/cube/T_0.05_nt2_min/init.top&file=../resources/sims/cube/T_0.05_nt2_min/trajectory.dat&file=../resources/sims/cube/T_0.05_nt2_min/particles.txt&file=../resources/sims/cube/T_0.05_nt2_min/patches.txt" data-background-interactive>
+						Wireframe cube (minimal, torsion) T = 0.05
+					</section>
+				</section>
+
+				<section class="center">
+					<h3>But let's return to the linear actuator</h3>
+				</section>
+			</div>
+		</div>
+
+		<script src="reveal/dist/reveal.js"></script>
+		<script src="reveal/plugin/notes/notes.js"></script>
+		<script src="reveal/plugin/markdown/markdown.js"></script>
+		<script src="reveal/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				center: false,
+				previewLinks: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

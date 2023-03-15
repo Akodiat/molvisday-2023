@@ -1,0 +1,76 @@
+
+##############################
+####  PROGRAM PARAMETERS  ####
+##############################
+backend = CPU
+backend_precision = double
+#debug = 1
+#seed = 10
+ensemble = NVT
+delta_translation = 0.1
+delta_rotation = 0.1
+narrow_type = no_torsion
+##############################
+####    SIM PARAMETERS    ####
+##############################
+newtonian_steps = 103
+diff_coeff = 0.1
+thermostat = john
+sim_type = MD
+dt = 0.001
+verlet_skin = 0.05
+no_stdout_energy = 0
+restart_step_counter = 1
+energy_file = energy.dat
+print_conf_interval = 1e7
+print_energy_every = 1e5
+time_scale = linear
+PATCHY_alpha = 0.12
+no_multipatch = 1
+steps = 5e9
+check_energy_every = 10000
+check_energy_threshold = 1.e-4
+T = 0.06
+refresh_vel = 1
+############################
+######## PATCHY SETUP ######
+############################
+#interaction_type = PLPATCHY_KF_like
+#interaction_type = PLPATCHY
+interaction_type = PatchyShapeInteraction
+
+plugin_search_path = /users/joakim/repo/oxDNA/contrib/romano
+shape = sphere
+
+particle_types_N = 20
+patch_types_N  = 48
+
+patchy_file = patches.txt
+particle_file = particles.txt
+same_type_bonding = 1
+use_torsion = 0
+interaction_tensor = 0
+
+#interaction_tensor_file = REFIX.int.tensor.txt
+
+#Set the radius of the sphere
+PATCHY_radius = 0.5
+
+lastconf_file = last_conf.dat
+##############################
+####    INPUT / OUTPUT    ####
+##############################
+
+topology = init.top
+conf_file = init.conf
+trajectory_file = trajectory.dat
+
+#Print out clusters 
+data_output_1 = {
+  name = clusters.txt
+  print_every = 1e7
+  col_1 = {
+    type = PLClusterTopology
+    show_types = 1
+  }
+}
